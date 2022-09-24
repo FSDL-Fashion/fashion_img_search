@@ -1,0 +1,36 @@
+[tool.poetry]
+name = "fashion-img-search"
+version = "0.1.0"
+description = ""
+authors = ["Jerome Blin <jerome@grover.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{ include = "fis" }]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+
+
+[tool.poetry.group.dev]
+optional = true
+
+[tool.poetry.group.dev.dependencies]
+black = "^22.8.0"
+flake8 = "^5.0.4"
+pre-commit = "^2.20.0"
+mypy = "^0.971"
+
+[tool.flake8] # configured in .flake8
+[tool.darglint] # configured in .flake8
+
+[tool.black]
+line-length = 120
+target-version = ["py37"]
+
+[tool.mypy]
+ignore_missing_imports = true
+exclude = [""]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

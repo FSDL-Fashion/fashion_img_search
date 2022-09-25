@@ -1,7 +1,6 @@
 # Data
-data/downloaded
-data/processed
-data/interim
+data/*
+!fis/utils/data
 
 
 # Editors

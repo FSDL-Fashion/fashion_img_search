@@ -4,7 +4,6 @@ import zipfile
 
 from fis.utils.config import DIR_DATA
 
-
 # Download from S3
 RAW_TRAIN_IMAGES = "https://s3.amazonaws.com/ifashionist-dataset/images/train2020.zip"
 RAW_VAL_IMAGES = "https://s3.amazonaws.com/ifashionist-dataset/images/val_test2020.zip"
@@ -39,7 +38,7 @@ def download(url: str, target: str) -> None:
 
 
 def download_fashionpedia(destination_dir: str = DIR_DATA) -> None:
-    """Download the Fashionpedia dataset
+    """Download the Fashionpedia dataset.
 
     Args:
         destination_dir: directory where the dataset will be saved.

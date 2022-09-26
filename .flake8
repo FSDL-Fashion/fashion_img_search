@@ -22,11 +22,11 @@ application-import-names = app_gradio,text_recognizer,tests,training
   # flake8-import-order: which names are first party?
 import-order-style = google
   # flake8-import-order: which import order style guide do we use?
-docstring-convention = numpy
+docstring-convention = google
   # flake8-docstrings: which docstring style guide do we use?
 strictness = short
   # darglint: how "strict" are we with docstring completeness?
-docstring-style = numpy
+docstring-style = google
   # darglint: which docstring style guide do we use?
 suppress-none-returning = true
   # flake8-annotations: do we allow un-annotated Nones in returns?

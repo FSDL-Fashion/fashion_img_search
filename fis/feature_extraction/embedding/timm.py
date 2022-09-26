@@ -6,7 +6,7 @@ from PIL import Image
 from timm.data import resolve_data_config
 from timm.data.transforms_factory import create_transform
 
-from fis.embedding.base import BaseEncoder
+from fis.feature_extraction.embedding.base import BaseEncoder
 
 
 class TimmModel(BaseEncoder):

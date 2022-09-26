@@ -2,7 +2,7 @@ from typing import List, Tuple
 
 from PIL import Image
 
-from fis.detection.base import BaseDetector
+from fis.feature_extraction.detection.base import BaseDetector
 
 
 class DummyDetector(BaseDetector):

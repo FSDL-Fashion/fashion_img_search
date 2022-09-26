@@ -4,8 +4,8 @@ import torch
 from PIL import Image
 from PIL.Image import Image as Img
 
-from fis.detection.base import BaseDetector
-from fis.embedding.base import BaseEncoder
+from fis.feature_extraction.detection.base import BaseDetector
+from fis.feature_extraction.embedding.base import BaseEncoder
 
 
 class EncodingPipeline:

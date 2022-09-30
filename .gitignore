@@ -19,6 +19,7 @@ __pycache__
 .ipynb_checkpoints
 *.nbconvert*.ipynb
 .notebook_test.sh
+notebooks/
 
 # Distribution / packaging
 .Python
@@ -60,3 +61,6 @@ lab9/requirements.txt
 requirements/dev-lint.txt
 bootstrap.py
 **/fixme.py
+
+# Milvus
+volumes/

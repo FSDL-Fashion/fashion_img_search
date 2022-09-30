@@ -15,6 +15,12 @@ repos:
       - id: debug-statements         # check for python debug statements (import pdb, breakpoint, etc.)
       - id: detect-private-key       # checks for private keys (BEGIN X PRIVATE KEY, etc.)
 
+  - repo: https://github.com/PyCQA/isort
+    rev: 5.10.1
+    hooks:
+      - id: isort
+        args: [--profile=black]
+
   # black python autoformatting
   - repo: https://github.com/psf/black
     rev: 22.3.0
@@ -30,7 +36,7 @@ repos:
         exclude: (lab01|lab02|lab03|lab04|lab06|lab07|lab08)
         additional_dependencies: [
           flake8-annotations, flake8-bandit, flake8-bugbear, flake8-black, flake8-docstrings,
-          flake8-import-order, darglint, mypy, pycodestyle, pydocstyle]
+          darglint, mypy, pycodestyle, pydocstyle]
         args: ["--config", ".flake8"]
     # additional configuration of flake8 and extensions in .flake8
 

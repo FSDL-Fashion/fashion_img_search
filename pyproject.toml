@@ -28,6 +28,11 @@ pre-commit = "^2.20.0"
 mypy = "^0.971"
 jupyterlab = "^3.4.7"
 
+
+[tool.poetry.group.scraping.dependencies]
+Scrapy = "^2.6.3"
+scrapy-playwright = "^0.0.21"
+
 [tool.black]
 line-length = 120
 target-version = ["py37"]

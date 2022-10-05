@@ -35,6 +35,7 @@ class NetaporterSpider(scrapy.Spider):
     def parse_product(self, response):
         def get_images(query):
             images_urls = response.css(query).getall()
+            images_urls = [images_url for images_url in images_urls if "/variants/" in images_url]
             images_urls = ["https:" + image_url for image_url in images_urls]
             return images_urls
 

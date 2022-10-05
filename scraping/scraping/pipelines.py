@@ -3,6 +3,7 @@
 
 import json
 import logging
+import os
 
 from itemadapter import ItemAdapter
 
@@ -24,7 +25,9 @@ class AddDefaultValuesPipeline:
 
 class JsonWriterPipeline:
     def open_spider(self, spider):
-        self.file = open("items.jsonl", "a+")
+        PATH = "/Users/jeromeblin/self/fsdl/fashion_img_search/data/scraping"
+        os.makedirs(PATH, exist_ok=True)
+        self.file = open(os.path.join(PATH, "items.jsonl"), "a+")
 
     def close_spider(self, spider):
         self.file.close()

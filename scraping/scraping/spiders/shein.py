@@ -13,6 +13,8 @@ from ..loaders.shein import SheinLoader
 
 
 class SheinSpider(scrapy.Spider):
+    """Spider to srape products from shein."""
+
     name = "shein"
     allowed_domains = ["us.shein.com"]
     start_urls = [

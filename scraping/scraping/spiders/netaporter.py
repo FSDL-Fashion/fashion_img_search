@@ -15,6 +15,8 @@ from ..loaders.netaporter import NetaporterLoader
 
 
 class NetaporterSpider(scrapy.Spider):
+    """Spider to srape products from net-a-porter."""
+
     name = "netaporter"
     allowed_domains = ["net-a-porter.com"]
     start_urls = [

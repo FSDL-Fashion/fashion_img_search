@@ -24,6 +24,8 @@ class AddDefaultValuesPipeline:
 
 
 class JsonWriterPipeline:
+    """Saves extracted data to json file."""
+
     def open_spider(self, spider):
         PATH = "/Users/jeromeblin/self/fsdl/fashion_img_search/data/scraping"
         os.makedirs(PATH, exist_ok=True)

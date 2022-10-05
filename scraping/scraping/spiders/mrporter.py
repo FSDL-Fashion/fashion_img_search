@@ -14,6 +14,8 @@ from ..loaders.mrporter import MrportertLoader
 
 
 class MrporterSpider(scrapy.Spider):
+    """Spider to srape products from mrporter."""
+
     name = "mrporter"
     allowed_domains = ["mrporter.com"]
     start_urls = [

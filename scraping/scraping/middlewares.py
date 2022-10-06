@@ -1,7 +1,7 @@
 from scrapy import signals
 
 
-class ScrapingSpiderMiddleware:
+class ScrapingSpiderMiddleware:  # noqa: D101
     # Not all methods need to be defined. If a method is not defined,
     # scrapy acts as if the spider middleware does not modify the
     # passed objects.
@@ -48,7 +48,7 @@ class ScrapingSpiderMiddleware:
         spider.logger.info("Spider opened: %s" % spider.name)
 
 
-class ScrapingDownloaderMiddleware:
+class ScrapingDownloaderMiddleware:  # noqa: D101
     # Not all methods need to be defined. If a method is not defined,
     # scrapy acts as if the downloader middleware does not modify the
     # passed objects.

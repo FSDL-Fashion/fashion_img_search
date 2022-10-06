@@ -7,6 +7,8 @@ from w3lib.html import remove_tags
 
 
 class SheinLoader(ItemLoader):
+    """Loads shein data."""
+
     default_input_processor = Identity()
     default_output_processor = TakeFirst()
 

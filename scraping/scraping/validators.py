@@ -6,6 +6,8 @@ from schematics.types import ListType, StringType, URLType
 
 
 class ProductValidator(Model):
+    """Validate scraped data."""
+
     shop = StringType(required=True)
     product_name = StringType(required=True)
     product_url = URLType(required=True)

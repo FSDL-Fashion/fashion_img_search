@@ -7,6 +7,8 @@ import os
 
 from itemadapter import ItemAdapter
 
+from fis.utils import config as cfg
+
 logger = logging.getLogger(__name__)
 
 
@@ -26,10 +28,11 @@ class AddDefaultValuesPipeline:
 class JsonWriterPipeline:
     """Saves extracted data to json file."""
 
+    name = "write_json_lines"
+
     def open_spider(self, spider):
-        PATH = "/Users/jeromeblin/self/fsdl/fashion_img_search/data/scraping"
-        os.makedirs(PATH, exist_ok=True)
-        self.file = open(os.path.join(PATH, "items.jsonl"), "a+")
+        os.makedirs(cfg.DIR_SCRAPING, exist_ok=True)
+        self.file = open(os.path.join(cfg.DIR_SCRAPING, cfg.FILE_SCRAPING_DATA), "a+")
 
     def close_spider(self, spider):
         self.file.close()

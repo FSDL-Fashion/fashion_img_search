@@ -1,46 +1,21 @@
+from fis.utils import config as cfg
+
 BOT_NAME = "scraping"
 
 SPIDER_MODULES = ["scraping.spiders"]
 NEWSPIDER_MODULE = "scraping.spiders"
 
+LOG_LEVEL = "INFO"
+LOG_FORMAT = "%(asctime)s - %(levelname)s - [%(name)-s]: %(message)s"
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 # USER_AGENT = 'scraping (+http://www.yourdomain.com)'
 
-# Obey robots.txt rules
 ROBOTSTXT_OBEY = False
 
-# Configure maximum concurrent requests performed by Scrapy (default: 16)
 CONCURRENT_REQUESTS = 32
 
-# Configure a delay for requests for the same website (default: 0)
-# See also autothrottle settings and docs
-# DOWNLOAD_DELAY = 3
-# The download delay setting will honor only one of:
-# CONCURRENT_REQUESTS_PER_DOMAIN = 16
-# CONCURRENT_REQUESTS_PER_IP = 16
-
-# Disable cookies (enabled by default)
-# COOKIES_ENABLED = False
-
-# Disable Telnet Console (enabled by default)
-# TELNETCONSOLE_ENABLED = False
-
-# Override the default request headers:
-# DEFAULT_REQUEST_HEADERS = {
-#   'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-#   'Accept-Language': 'en',
-# }
-
-# Enable or disable spider middlewares
-# SPIDER_MIDDLEWARES = {
-#    'scraping.middlewares.ScrapingSpiderMiddleware': 543,
-# }
-
-# Enable or disable downloader middlewares
-# DOWNLOADER_MIDDLEWARES = {
-#    'scraping.middlewares.ScrapingDownloaderMiddleware': 543,
-# }
+IMAGES_STORE = cfg.S3_BUCKET_IMAGES
 
 DOWNLOAD_HANDLERS = {
     "http": "scrapy_playwright.handler.ScrapyPlaywrightDownloadHandler",
@@ -48,25 +23,12 @@ DOWNLOAD_HANDLERS = {
 }
 TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 
-# Enable or disable extensions
-# EXTENSIONS = {
-#    'scrapy.extensions.telnet.TelnetConsole': None,
-# }
+PLAYWRIGHT_DEFAULT_NAVIGATION_TIMEOUT = 60000
 
-# Configure item pipelines
 ITEM_PIPELINES = {
     "scraping.pipelines.AddDefaultValuesPipeline": 800,
-    "scraping.pipelines.JsonWriterPipeline": 801,
+    "scrapy.pipelines.images.ImagesPipeline": 801,
+    "scraping.pipelines.JsonWriterPipeline": 802,
 }
 
-# Enable and configure the AutoThrottle extension (disabled by default)
 # AUTOTHROTTLE_ENABLED = True
-# The initial download delay
-# AUTOTHROTTLE_START_DELAY = 5
-# The maximum download delay to be set in case of high latencies
-# AUTOTHROTTLE_MAX_DELAY = 60
-# The average number of requests Scrapy should be sending in parallel to
-# each remote server
-# AUTOTHROTTLE_TARGET_CONCURRENCY = 1.0
-# Enable showing throttling stats for every response received:
-# AUTOTHROTTLE_DEBUG = False

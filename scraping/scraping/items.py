@@ -11,3 +11,4 @@ class ProductItem(scrapy.Item):
     product_name = scrapy.Field()
     product_url = scrapy.Field()
     image_urls = scrapy.Field()
+    images = scrapy.Field()

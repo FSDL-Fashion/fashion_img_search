@@ -31,7 +31,6 @@ class SheinSpider(scrapy.Spider):
         yield from response.follow_all(
             urls=product_urls,
             callback=self.parse_product,
-            errback=self.errback,
             meta={"playwright": True},
         )
 
@@ -50,7 +49,3 @@ class SheinSpider(scrapy.Spider):
         product.add_value("image_urls", get_images(query="div.product-intro__thumbs-item img::attr(src)"))
 
         return product.load_item()
-
-    async def errback(self, failure):
-        page = failure.request.meta["playwright_page"]
-        await page.close()

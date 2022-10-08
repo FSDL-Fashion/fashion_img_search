@@ -8,8 +8,7 @@ NEWSPIDER_MODULE = "scraping.spiders"
 LOG_LEVEL = "INFO"
 LOG_FORMAT = "%(asctime)s - %(levelname)s - [%(name)-s]: %(message)s"
 
-# Crawl responsibly by identifying yourself (and your website) on the user-agent
-# USER_AGENT = 'scraping (+http://www.yourdomain.com)'
+USER_AGENT = "Mozilla/5.0 (X11; Linux armv7l) AppleWebKit/537.36 (KHTML, like Gecko) Raspbian Chromium/74.0.3729.157 Chrome/74.0.3729.157 Safari/537.36"
 
 ROBOTSTXT_OBEY = False
 
@@ -31,4 +30,4 @@ ITEM_PIPELINES = {
     "scraping.pipelines.JsonWriterPipeline": 802,
 }
 
-# AUTOTHROTTLE_ENABLED = True
+AUTOTHROTTLE_ENABLED = False

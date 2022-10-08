@@ -8,7 +8,7 @@ readme = "README.md"
 packages = [{ include = "fis" }]
 
 [tool.poetry.dependencies]
-python = "^3.7.1"
+python = ">=3.7.1,<3.9"
 torch = "^1.12.1"
 torchvision = "^0.13.1"
 timm = "^0.6.7"
@@ -27,6 +27,16 @@ flake8 = "^5.0.4"
 pre-commit = "^2.20.0"
 mypy = "^0.971"
 jupyterlab = "^3.4.7"
+ipywidgets = "^8.0.2"
+
+[tool.poetry.group.scraping]
+optional = true
+
+[tool.poetry.group.scraping.dependencies]
+Scrapy = "^2.6.3"
+scrapy-playwright = "^0.0.21"
+img2dataset = "^1.33.0"
+botocore = "^1.27.88"
 
 [tool.black]
 line-length = 120

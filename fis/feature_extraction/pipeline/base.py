@@ -44,7 +44,7 @@ class EncodingPipeline:
 
         return embeddings
 
-    def _load_images(self, image: Any) -> Image:
+    def _load_images(self, image: Any) -> Img:
         """Read an image from disk.
 
         Args:

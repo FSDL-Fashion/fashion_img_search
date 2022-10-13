@@ -23,10 +23,9 @@ dataset = load_dataset(path=DATASET_PATH, split="train")
 dataset.add_faiss_index(column="embedding")
 
 
-def find_most_similar(image: np.ndarray, n_similar_images: float) -> List[Img]:
+def find_most_similar(image: np.ndarray) -> List[Img]:
     image_embeddings = pipeline.encode(image)[0]
 
-    # scores, samples = dataset.get_nearest_examples("embedding", image_embeddings, k=int(n_similar_images))
     scores, samples = dataset.get_nearest_examples("embedding", image_embeddings, k=5)
 
     images = []
@@ -37,4 +36,4 @@ def find_most_similar(image: np.ndarray, n_similar_images: float) -> List[Img]:
     return images
 
 
-gr.Interface(fn=find_most_similar, inputs=["image", gr.Number()], outputs=["image" for i in range(5)]).launch()
+gr.Interface(fn=find_most_similar, inputs="image", outputs=["image" for i in range(5)]).launch()

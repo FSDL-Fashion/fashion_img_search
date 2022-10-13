@@ -1,6 +1,8 @@
+import io
 from typing import List
 
 import boto3
+from PIL import Image
 
 from fis.utils import config as cfg
 
@@ -22,7 +24,17 @@ def list_images_from_bucket(bucket: str = cfg.S3_BUCKET) -> List[str]:
     for _object in my_bucket.objects.all():
         key = _object.key
         if ".jpg" in key:
-            image = key.split("/")[-1]
-            images.append(image)
+            # image = key.split("/")[-1]
+            # images.append(image)
+            images.append(key)
 
     return images
+
+
+def read_image_from_s3(key, bucket: str = cfg.S3_BUCKET):
+
+    bucket = s3.Bucket(bucket)
+    image = bucket.Object(key)
+    img_data = image.get().get("Body").read()
+
+    return Image.open(io.BytesIO(img_data))

@@ -17,6 +17,9 @@ Pillow = "^9.2.0"
 pymilvus = "^2.1.2"
 python-dotenv = "^0.21.0"
 boto3 = "^1.24.89"
+datasets = "^2.6.0"
+faiss-cpu = "^1.7.2"
+tqdm = "^4.64.1"
 
 [tool.poetry.group.dev]
 optional = true
@@ -36,7 +39,6 @@ optional = true
 [tool.poetry.group.scraping.dependencies]
 Scrapy = "^2.6.3"
 scrapy-playwright = "^0.0.21"
-img2dataset = "^1.33.0"
 botocore = "^1.27.88"
 
 [tool.black]

@@ -23,16 +23,18 @@ class EncodingPipeline:
         self._detection_model = detection_model
         self._embedding_model = embedding_model
 
-    def encode(self, path: str) -> List[torch.Tensor]:
+    def encode(self, image: str) -> List[torch.Tensor]:
         """Encode each item from an image into a embedding.
 
         Args:
-            path: path to the image.
+            image: path to the image.
 
         Returns:
             Embeddings for each detected item in the image.
         """
-        image = self._load_images(path)
+        if not isinstance(image, Img):
+            image = self._load_images(image)
+
         bboxes = self._detection_model(image)
         items = self._crop_images(image, bboxes)
 

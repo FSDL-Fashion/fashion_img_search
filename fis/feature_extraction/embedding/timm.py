@@ -60,4 +60,4 @@ class TimmModel(BaseEncoder):
         with torch.no_grad():
             embedding = self._model(tensor)
 
-        return embedding
+        return embedding.numpy()[0]

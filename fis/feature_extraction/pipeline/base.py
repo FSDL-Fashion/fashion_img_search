@@ -1,5 +1,6 @@
-from typing import List
+from typing import Any, List
 
+import numpy as np
 import torch
 from PIL import Image
 from PIL.Image import Image as Img
@@ -32,9 +33,7 @@ class EncodingPipeline:
         Returns:
             Embeddings for each detected item in the image.
         """
-        if not isinstance(image, Img):
-            image = self._load_images(image)
-
+        image = self._load_images(image)
         bboxes = self._detection_model(image)
         items = self._crop_images(image, bboxes)
 
@@ -45,16 +44,26 @@ class EncodingPipeline:
 
         return embeddings
 
-    def _load_images(self, path: str) -> Image:
+    def _load_images(self, image: Any) -> Img:
         """Read an image from disk.
 
         Args:
-            path: Path to the image on disk.
+            image: Path to the image on disk.
+
+        Raises:
+            TypeError: if the type of image is incorrect.
 
         Returns:
             PIL Image.
         """
-        image = Image.open(path)
+        if isinstance(image, Img):
+            pass
+        elif isinstance(image, np.ndarray):
+            image = Image.fromarray(image)
+        elif isinstance(image, str):
+            image = Image.open(image)
+        else:
+            raise TypeError(f"Unknown type for image: {type(image)}")
 
         return image
 

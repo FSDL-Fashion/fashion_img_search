@@ -24,8 +24,6 @@ def list_images_from_bucket(bucket: str = cfg.S3_BUCKET) -> List[str]:
     for _object in my_bucket.objects.all():
         key = _object.key
         if ".jpg" in key:
-            # image = key.split("/")[-1]
-            # images.append(image)
             images.append(key)
 
     return images

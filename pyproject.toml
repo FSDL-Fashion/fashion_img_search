@@ -20,6 +20,7 @@ boto3 = "^1.24.89"
 datasets = "^2.6.0"
 faiss-cpu = "^1.7.2"
 tqdm = "^4.64.1"
+gradio = "^3.4.1"
 
 [tool.poetry.group.dev]
 optional = true

@@ -10,6 +10,7 @@ from fis.utils.s3 import list_images_from_bucket, read_image_from_s3
 def make_dataset(pipeline_name: str) -> Dataset:
     print("Listing images from S3...")
     images = list_images_from_bucket()
+    images = images[:100000]
     print(f"{len(images)} images to process.")
 
     pipeline = factory.get(pipeline_name)

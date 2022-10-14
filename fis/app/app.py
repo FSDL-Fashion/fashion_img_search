@@ -36,4 +36,21 @@ def find_most_similar(image: np.ndarray) -> List[Img]:
     return images
 
 
-gr.Interface(fn=find_most_similar, inputs="image", outputs=["image" for i in range(5)]).launch()
+description = """
+Upload an image, and see the **top 5** most similar items in our database.
+
+Supported categories are clothing, shoes and bags.
+"""
+
+images = [image for image in os.listdir("./images") if ".jpeg" in image]
+images = [os.path.join("./images", image) for image in images]
+
+gr.Interface(
+    title="Fashion image search",
+    description=description,
+    fn=find_most_similar,
+    inputs="image",
+    outputs=["image" for i in range(5)],
+    examples=images,
+    cache_examples=True,
+).launch()
